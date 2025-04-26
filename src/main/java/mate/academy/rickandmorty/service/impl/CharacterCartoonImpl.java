@@ -39,9 +39,9 @@ public class CharacterCartoonImpl implements CharacterCartoon {
                 .build();
 
         try {
-            HttpResponse<String> responce = httpClient.send(httpRequest,
+            HttpResponse<String> response = httpClient.send(httpRequest,
                     HttpResponse.BodyHandlers.ofString());
-            CharacterResponseDataDto dataDto = objectMapper.readValue(responce.body(),
+            CharacterResponseDataDto dataDto = objectMapper.readValue(response.body(),
                     CharacterResponseDataDto.class);
             List<RickAndMortyApiCharacterDto> apiCharacterDtos = Optional
                     .ofNullable(dataDto.getResults())

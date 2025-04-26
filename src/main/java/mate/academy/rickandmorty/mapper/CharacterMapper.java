@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(config = MapperConfig.class)
 public interface CharacterMapper {
+    @Mapping(target = "externalId", source = "id")
     Character fromApiDto(RickAndMortyApiCharacterDto apiDto);
 
     @Mapping(target = "externalId", source = "id")

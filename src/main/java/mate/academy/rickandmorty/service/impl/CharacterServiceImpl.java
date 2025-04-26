@@ -57,6 +57,9 @@ public class CharacterServiceImpl implements CharacterService {
 
     private Character getRandom() {
         List<Character> all = characterRepository.findAll();
+        if (all.isEmpty()) {
+            throw new IllegalStateException("No characters available to select from.");
+        }
         return all.get(new Random().nextInt(all.size()));
     }
 }
